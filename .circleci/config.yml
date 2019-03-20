@@ -1,0 +1,16 @@
+version: 2.1
+
+jobs:
+  validate:
+    docker:
+      - image: circleci/circleci-cli:alpine
+    steps:
+      - checkout
+      - run:
+          name: Validate Orb
+          command: circleci orb validate orb.yml
+
+workflows:
+  test:
+    jobs:
+      - validate
