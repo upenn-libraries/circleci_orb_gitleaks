@@ -9,4 +9,5 @@ workflows:
     jobs:
       - orb-tools/publish-dev:
           orb-name: upenn-libraries/gitleaks
+          orb-path: orb.yml
           checkout: true
