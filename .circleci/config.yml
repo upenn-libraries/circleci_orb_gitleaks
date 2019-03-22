@@ -10,5 +10,8 @@ workflows:
       - orb-tools/lint
       - orb-tools/publish-dev:
           orb-name: upenn-libraries/gitleaks
+          orb-path: orb.yml
+          attach-workspace: false
+          checkout: true
           requires:
             - orb-tools/lint
