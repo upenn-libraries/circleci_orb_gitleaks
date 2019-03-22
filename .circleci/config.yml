@@ -1,16 +1,12 @@
 version: 2.1
 
-jobs:
-  validate:
-    docker:
-      - image: circleci/circleci-cli:alpine
-    steps:
-      - checkout
-      - run:
-          name: Validate Orb
-          command: circleci orb validate orb.yml
+orbs:
+  orb-tools: circleci/orb-tools@8.4.0
+  gitleaks: upenn-libraries/gitleaks@dev:alpha
 
 workflows:
-  test:
+  test_and_publish:
     jobs:
-      - validate
+      - orb-tools/publish-dev:
+          orb-name: upenn-libraries/gitleaks
+          checkout: true
