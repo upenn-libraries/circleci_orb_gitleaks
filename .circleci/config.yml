@@ -8,18 +8,18 @@ workflows:
   test_and_publish:
     jobs:
       - orb-tools/lint
-      - orb-tools/publish-dev:
-          orb-name: upenn-libraries/gitleaks
-          orb-path: orb.yml
-          attach-workspace: false
-          checkout: true
+      - orb-tools/pack:
           requires:
             - orb-tools/lint
       - orb-tools/test-in-builds:
+          attach-workspace: true
           orb-name: gitleaks
-          orb-location: orb.yml
           test-steps:
             - orb-tools/local-test-build:
                 test-config-location: .circleci/test.yml
           requires:
-            - orb-tools/publish-dev
+            - orb-tools/pack
+      - orb-tools/publish-dev:
+          orb-name: upenn-libraries/gitleaks
+          requires:
+            - orb-tools/test-in-builds
