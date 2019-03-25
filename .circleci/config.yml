@@ -20,6 +20,6 @@ workflows:
           orb-location: orb.yml
           test-steps:
             - orb-tools/local-test-build:
-                test-config-location: test.yml
+                test-config-location: .circleci/test.yml
           requires:
             - orb-tools/publish-dev
