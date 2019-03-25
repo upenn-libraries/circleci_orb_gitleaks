@@ -21,3 +21,5 @@ workflows:
           test-steps:
             - orb-tools/local-test-build:
                 test-config-location: test.yml
+          requires:
+            - orb-tools/publish-dev
