@@ -5,3 +5,4 @@ workflows:
     jobs:
       - gitleaks/test_local:
           context: github
+          name: build
