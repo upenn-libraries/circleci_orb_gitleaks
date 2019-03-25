@@ -3,4 +3,5 @@ version: 2.1
 workflows:
   test:
     jobs:
-      - gitleaks/check_local
+      - gitleaks/check_local:
+          context: github
