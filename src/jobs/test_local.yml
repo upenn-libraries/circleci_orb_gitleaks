@@ -3,8 +3,8 @@ description: |
 
 executor: docker
 
+working_directory: /root/project
+
 steps:
   - checkout
   - check_local
-
-working_directory: /root/project
