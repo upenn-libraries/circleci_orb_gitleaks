@@ -16,7 +16,7 @@ workflows:
           requires:
             - orb-tools/lint
       - orb-tools/test-in-builds:
-          orb-name: upenn-libraries/gitleaks
+          orb-name: gitleaks
           orb-location: orb.yml
           test-steps:
             - orb-tools/local-test-build:
