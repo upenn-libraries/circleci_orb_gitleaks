@@ -1,0 +1,10 @@
+description: |
+  Clone a Git repository and check it for secrets.
+
+executor: docker
+
+steps:
+  - checkout
+  - check_local
+
+working_directory: /root/project

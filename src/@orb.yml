@@ -1,47 +1,4 @@
 version: 2.1
-
 description: |
   Check Git repositories for secrets with Gitleaks. Source:
   https://github.com/upenn-libraries/circleci_orbs
-
-executors:
-  docker:
-    description:
-    parameters:
-      image:
-        description: |
-          The Gitleaks Docker image to use when auditing a repository. It is
-          recommended that you publish your own image instead of trusting
-          an image that you don't control.
-        type: string
-        default: zricethezav/gitleaks
-    docker:
-      - image: << parameters.image >>
-
-commands:
-  check_local:
-    description: |
-      Run Gitleaks against a local repository.
-    parameters:
-      path:
-        type: string
-        description: Path to the local Git repository.
-        default: ${CIRCLE_WORKING_DIRECTORY}
-      options:
-        type: string
-        description: Additional options to pass to the Gitleaks CLI.
-        default: ''
-    steps:
-      - run:
-          command: |
-            gitleaks --repo-path=<< parameters.path >> << parameters.options >>
-
-jobs:
-  test_local:
-    description: |
-      Clone a Git repository and check it for secrets.
-    executor: docker
-    steps:
-      - checkout
-      - check_local
-    working_directory: /root/project

@@ -1,0 +1,17 @@
+description: |
+  Run Gitleaks against a local repository.
+
+parameters:
+  path:
+    type: string
+    description: Path to the local Git repository.
+    default: ${CIRCLE_WORKING_DIRECTORY}
+  options:
+    type: string
+    description: Additional options to pass to the Gitleaks CLI.
+    default: ''
+
+steps:
+  - run:
+      command: |
+        gitleaks --repo-path=<< parameters.path >> << parameters.options >>
