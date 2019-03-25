@@ -1,11 +1,12 @@
-description:
+description: |
+  Use a Gitleaks Docker container to check the repository for secrets.
 
 parameters:
   image:
     description: |
-      The Gitleaks Docker image to use when auditing a repository. It is
-      recommended that you publish your own image instead of trusting
-      an image that you don't control.
+      The Gitleaks Docker image to use when checking a repository. It is
+      recommended that you publish your own image instead of trusting an image
+      that you don't control.
     type: string
     default: zricethezav/gitleaks
 
