@@ -44,3 +44,4 @@ jobs:
     steps:
       - checkout
       - check_local
+    working_directory: /root/project
