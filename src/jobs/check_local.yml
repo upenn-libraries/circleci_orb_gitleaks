@@ -2,12 +2,21 @@ description: |
   Clone a Git repository and check it for secrets.
 
 parameters:
+  image:
+    description: |
+      The Gitleaks Docker image to use when checking a repository. It is
+      recommended that you publish your own image instead of trusting an image
+      that you don't control.
+    type: string
+    default: zricethezav/gitleaks
   options:
     type: string
     description: Additional options to pass to the Gitleaks CLI.
     default: ''
 
-executor: docker
+executor:
+  name: docker
+  image: << parameters.image >>
 
 working_directory: /root/project
 
