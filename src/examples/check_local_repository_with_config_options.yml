@@ -1,8 +1,8 @@
 description: |
   Use Gitleaks to clone a remote repository and then check the local repository
   with the provided configuration options. This example will redact secrets
-  from the build output and use the .gitleaks.toml file in the repository to
-  configure Gitleaks.
+  from the build output, use the .gitleaks.toml file in the repository to
+  configure Gitleaks, and use the provided Gitleaks Docker image.
 
 usage:
   version: 2.1
@@ -14,4 +14,5 @@ usage:
       check_for_secrets:
         jobs:
           - gitleaks/check_local:
+              image: quay.io/upennlibraries/gitleaks:v1.23.0
               options: --redact --repo-config
