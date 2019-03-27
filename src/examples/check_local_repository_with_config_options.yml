@@ -13,5 +13,5 @@ usage:
     workflows:
       check_for_secrets:
         jobs:
-          - gitleaks/test_local:
+          - gitleaks/check_local:
               options: --redact --repo-config
