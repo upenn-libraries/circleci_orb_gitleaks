@@ -1,10 +1,17 @@
 description: |
   Clone a Git repository and check it for secrets.
 
+parameters:
+  options:
+    type: string
+    description: Additional options to pass to the Gitleaks CLI.
+    default: ''
+
 executor: docker
 
 working_directory: /root/project
 
 steps:
   - checkout
-  - check_local
+  - check_local:
+      options: << parameters.options >>
