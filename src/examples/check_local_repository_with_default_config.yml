@@ -1,0 +1,14 @@
+description: |
+  Use Gitleaks to clone a remote repository and then check the local repository
+  with a default Gitleaks configuration.
+
+usage:
+  version: 2.1
+
+  orbs:
+    gitleaks: upenn-libraries/gitleaks@0.1.0
+
+    workflows:
+      check_for_secrets:
+        jobs:
+          - gitleaks/test_local
