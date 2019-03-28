@@ -2,4 +2,4 @@ version: 2.1
 
 description: |
   Check Git repositories for secrets with Gitleaks. Source:
-  https://github.com/upenn-libraries/circleci_orbs
+  https://github.com/upenn-libraries/circleci_orb_gitleaks
