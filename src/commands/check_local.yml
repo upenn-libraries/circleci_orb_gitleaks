@@ -15,4 +15,4 @@ steps:
   - run:
       name: Check repository for secrets
       command: |
-        gitleaks --repo-path=<< parameters.path >> << parameters.options >>
+        gitleaks --path=<< parameters.path >> << parameters.options >>
